@@ -28,14 +28,14 @@ export default {
             ],
         });
     
-    //Vimeo Init
-    var iframe = document.querySelector('iframe');
+    //Video Init
+    var iframe = document.querySelector('.video-player iframe');
 
-    if ( iframe.src.includes('vimeo') ) {
+    if ( iframe && iframe.src.includes('vimeo') ) {
       //VIMEO
 
       var player = new Vimeo(iframe);
-    
+
       // Video Player
       $('.video-btn').click(function () {
         $(this).parent('.video-player').addClass('active');
@@ -45,7 +45,7 @@ export default {
       $('.video-player').click(function () {
         $(this).parent('.video-player').removeClass('active');
       });
-    
+
       // When the movie has two parts
       $('.selection a').click(function () {
         player.pause();
@@ -67,19 +67,43 @@ export default {
         $('.video-player').addClass('active');
       });
 
-    } else { 
+    } else if ( iframe ) {
       //YOUTUBE
+
+      function youtubeEmbedUrl(url) {
+        let match = url.match(/(?:youtu\.be\/|watch\?v=|embed\/)([^&?/]+)/);
+        let id = match ? match[1] : url.split('/').pop();
+        return 'https://www.youtube.com/embed/' + id + '?autoplay=1';
+      }
 
       // Video Player
       $('.video-btn').click(function () {
         $(this).parent('.video-player').addClass('active');
+        if ( ! iframe.src.includes('autoplay=1') ) {
+          iframe.src += ( iframe.src.includes('?') ? '&' : '?' ) + 'autoplay=1';
+        }
       });
 
       $('.video-player').click(function () {
         $(this).parent('.video-player').removeClass('active');
       });
+
+      // When the movie has two parts
+      $('.selection a').click(function () {
+        //Change display of selection
+        $('.selection a').removeClass('active');
+        $(this).addClass('active');
+
+        //Load the correct video URL
+        let index = $(this).data('movie');
+        let video_url = $('.video-player').data('film-' + index);
+        iframe.src = youtubeEmbedUrl(video_url);
+
+        //Reveal the video
+        $('.video-player').addClass('active');
+      });
     }
-        
+
     },
     finalize() {
       // JavaScript to be fired on the home page, after the init JS
