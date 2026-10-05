@@ -12,6 +12,6 @@
         <div class="thumbnail" style="background-image: url(@if($thumb){{ $thumb }} @else @asset('images/film-default.png') @endif)"></div>
         <h4>{{ the_title() }}, {{ $dateDisplay }}</h3>
         <h5>{{ the_field('subtitle') }}</h4>
-        @if($hasFilm)<div class="tag"><i class="fas fa-play"></i> Watch Now</div>@endif
+        @if($hasFilm)<div class="tag">{!! theme_icon('play') !!} Watch Now</div>@endif
     </a>
 </div>

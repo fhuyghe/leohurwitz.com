@@ -43,7 +43,6 @@
   <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.12/dist/css/lightgallery.min.css"/>
 
   {{-- Fonts --}}
-  <script src="https://kit.fontawesome.com/ba9e3758fb.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://use.typekit.net/vac2ivs.css">
   
 </head>

@@ -1,7 +1,7 @@
 <article {!! post_class() !!}>
   <div class="container">
   <header class="collaborator-header">
-    <a href="/collaborators"><i class="far fa-arrow-left"></i> Back to all collaborators</a>
+    <a href="/collaborators">{!! theme_icon('arrow-left') !!} Back to all collaborators</a>
     <h1 class="entry-title">{!! get_the_title() !!}</h1>
   </header>
 

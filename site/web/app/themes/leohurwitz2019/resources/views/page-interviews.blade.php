@@ -13,7 +13,7 @@
           <a href="{{ the_permalink() }}">
             <div class="thumbnail" style="background-image: url({{ get_the_post_thumbnail_url() }})"></div>
             <h4>{{ the_title() }}, @if(get_field('year_span')) {{ the_field('year_span') }} @else {{ the_field('year') }}@endif</h4>
-            <div class="tag"><i class="fas fa-play"></i> Watch Now</div>
+            <div class="tag">{!! theme_icon('play') !!} Watch Now</div>
           </a>
         </div>
     @endwhile

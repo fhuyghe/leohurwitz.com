@@ -75,13 +75,13 @@
     <div class="container">
     <div class="row">
       <div class="col-2 col-md-4 prev">
-        @php next_post_link( '%link', '<i class="far fa-arrow-left"></i> <span class="title">%title</span>' ) @endphp
+        @php next_post_link( '%link', theme_icon('arrow-left') . ' <span class="title">%title</span>' ) @endphp
       </div>
       <div class="col-8 col-md-4 back">
         <a href="/films">Back to All Films</a>
       </div>
       <div class="col-2 col-md-4 next">
-        @php previous_post_link( '%link', '<span class="title">%title</span> <i class="far fa-arrow-right"></i>' ) @endphp
+        @php previous_post_link( '%link', '<span class="title">%title</span> ' . theme_icon('arrow-right') ) @endphp
       </div>
     </div>
     </div>

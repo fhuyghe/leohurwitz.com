@@ -13,10 +13,10 @@
         <div class="container">
         <div class="row">
           <div class="col-6 prev">
-            @php next_post_link( '%link', '<i class="far fa-arrow-left"></i> %title' ) @endphp
+            @php next_post_link( '%link', theme_icon('arrow-left') . ' %title' ) @endphp
           </div>
           <div class="col-6 next">
-            @php previous_post_link( '%link', '%title <i class="far fa-arrow-right"></i>' ) @endphp
+            @php previous_post_link( '%link', '%title ' . theme_icon('arrow-right') ) @endphp
           </div>
         </div>
         </div>
