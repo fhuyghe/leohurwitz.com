@@ -1,8 +1,204 @@
-### HEAD
+### 1.23.0: September 11th, 2024
+* Ubuntu 24.04 support [#1519](https://github.com/roots/trellis/pull/1519)
+* Update MariaDB to 10.11 [#1520](https://github.com/roots/trellis/pull/1520)
+* Update WP-CLI to v2.11.0 [#1533](https://github.com/roots/trellis/pull/1533)
+* Update dependency ntp to v2.5.0 [#1541](https://github.com/roots/trellis/pull/1541)
+* Update dependency swapfile to v2.0.38 [#1540](https://github.com/roots/trellis/pull/1540)
+* Update dependency composer to v1.9.2 [#1539](https://github.com/roots/trellis/pull/1539)
+* Conditionally add HTTPS inbound allow firewall rule [#1530](https://github.com/roots/trellis/pull/1530)
+* Use `http2` and `http3` nginx directives [#1529](https://github.com/roots/trellis/pull/1529)
+* Fix tags for common variable validations [#1544](https://github.com/roots/trellis/pull/1544)
+* Allow overriding 'pm' in PHP-FPM's pool config [#1542](https://github.com/roots/trellis/pull/1542)
+* Prevent warnings running composer as root [#1527](https://github.com/roots/trellis/pull/1527)
+* Fix undefined method `exists?` error [#1524](https://github.com/roots/trellis/pull/1524)
+
+### 1.22.1: May 30th, 2024
+* Fix Nginx apt-key is deprecated failure [#1518](https://github.com/roots/trellis/pull/1518)
+
+### 1.22.0: April 24th, 2024
+* Fix MariaDB apt-key is deprecated failure [#1515](https://github.com/roots/trellis/pull/1515)
+* Default to PHP 8.2, add PHP 8.3 support [#1514](https://github.com/roots/trellis/pull/1514)
+* Add PHP JIT and enable it by default [#1505](https://github.com/roots/trellis/pull/1505)
+* Update wp_cli_version to 2.9.0 [#1508](https://github.com/roots/trellis/pull/1508)
+* Add `cron` to default `apt` packages [#1506](https://github.com/roots/trellis/pull/1506)
+* Enable PHP OPCache overwrites for `max_wasted_percentage` & `huge_code_pages` [#1503](https://github.com/roots/trellis/pull/1503)
+* Add MariaDB server config for optimizatons [#1497](https://github.com/roots/trellis/pull/1497)
+* Add PHP-FPM conf and tuning settings [#1496](https://github.com/roots/trellis/pull/1496)
+* CLI config updates [#1486](https://github.com/roots/trellis/pull/1486)
+* Update Bitbucket Cloud SSH Host Keys [#1492](https://github.com/roots/trellis/pull/1492)
+* Add Libvirt to the Vagrant config file [#1490](https://github.com/roots/trellis/pull/1490)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.21.0...v1.22.0
+
+### 1.21.0: April 5th, 2023
+* Add optional PHP 8.2 support [#1485](https://github.com/roots/trellis/pull/1485)
+* Default to PHP 8.1 [#1484](https://github.com/roots/trellis/pull/1484)
+* Use appropriate mount_option for 'parallels' provider [#1481](https://github.com/roots/trellis/pull/1481)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.20.1...v1.21.0
+
+### 1.20.1: March 7th, 2023
+* Fix invalid arg error in ferm task [#1480](https://github.com/roots/trellis/pull/1480)
+* Fix `ansible_user` references for local provisioning [#1479](https://github.com/roots/trellis/pull/1479)
+* Fix HSTS header by trimming whitespace [#1478](https://github.com/roots/trellis/pull/1478)
+* Replace MailHog with Mailpit [#1474](https://github.com/roots/trellis/pull/1474)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.20.0...v1.20.1
+
+### 1.20.0: February 12th, 2023
+* Set development web_user to ansible_user [#1464](https://github.com/roots/trellis/pull/1464)
+* Update boxes to Ubuntu 22.04 [#1461](https://github.com/roots/trellis/pull/1461)
+* Composer Authentications: Fix `loop_var` already in use issue [#1469](https://github.com/roots/trellis/pull/1469)
+* Install wp as the default user [#1470](https://github.com/roots/trellis/pull/1470)
+* Allow non-default upload_path [#1471](https://github.com/roots/trellis/pull/1471)
+* Vagrant: disable NFS udp by default [#1472](https://github.com/roots/trellis/pull/1472)
+* Run SSH key generate task for local provision only [#1473](https://github.com/roots/trellis/pull/1473)
+* Disable xmlrpc by default [#1467](https://github.com/roots/trellis/pull/1467)
+
+**Full Changelog**: https://github.com/roots/trellis/compare/v1.19.0...v1.20.0
+
+### 1.19.0: January 2nd, 2023
+* Composer Authentication: Add support for `bearer`, `gitlab-oauth`, `gitlab-token`, `github-oauth` and `bitbucket-oauth` principles [#1413](https://github.com/roots/trellis/pull/1413)
+* Prevent ansible-core 2.13.6 [#1448](https://github.com/roots/trellis/pull/1448)
+* Enable PHP opcache in development [#1447](https://github.com/roots/trellis/pull/1447)
+* Remove deprecated warn usage [#1450](https://github.com/roots/trellis/pull/1450)
+* Composer Authentication: Add support for `bearer`, `gitlab-oauth`, `gitlab-token`, `github-oauth` and `bitbucket-oauth` principles [#1413](https://github.com/roots/trellis/pull/1413)
+* Update `wp_cli_version` to 2.7.1 [#1451](https://github.com/roots/trellis/pull/1451)
+* Disable chown site directory task by default [#1452](https://github.com/roots/trellis/pull/1452)
+* Update oefenweb.swapfile role [#1455](https://github.com/roots/trellis/pull/1455)
+* Allow remote and local databases for a site [#1457](https://github.com/roots/trellis/pull/1457)
+* Fix standard output for multisite cron job [#1458](https://github.com/roots/trellis/pull/1458)
+* Fix sshd config - set AcceptEnv conditionally [#1453](https://github.com/roots/trellis/pull/1453)
+
+### 1.18.0: November 8th, 2022
+* Fix xdebug role by including PHP vars ([#1429](https://github.com/roots/trellis/pull/1429))
+* Automate ARM64 Vagrant box support for Apple Silicon ([#1431](https://github.com/roots/trellis/pull/1431))
+* Support ARM64 arch in Mailhog role ([#1432](https://github.com/roots/trellis/pull/1432))
+* Only allow Nginx caching for GET and HEAD requests ([#1435](https://github.com/roots/trellis/pull/1435))
+
+### 1.17.0: September 27th, 2022
+* [BREAKING] Disable HSTS `includeSubdomains` by default ([#1409](https://github.com/roots/trellis/pull/1409))
+* Don't use sudo for composer authentications in dev ([#1427](https://github.com/roots/trellis/pull/1427))
+* Sage 10 deploy: Fail if entrypoints are missing ([#1426](https://github.com/roots/trellis/pull/1426))
+* Nginx: add "text/javascript" to gzip_types ([#1424](https://github.com/roots/trellis/pull/1424))
+* Disable Landrush DNS Resolver in Parallels ([#1421](https://github.com/roots/trellis/pull/1421))
+* Remove dynamic SSH key host checks ([#1419](https://github.com/roots/trellis/pull/1419))
+* Update Vagrant required version ([#1420](https://github.com/roots/trellis/pull/1420))
+* Remove custom output callback plugin ([#1418](https://github.com/roots/trellis/pull/1418))
+* Migrage `with_X` looping usage to `loop` ([#1416](https://github.com/roots/trellis/pull/1416))
+* Fix backwards compat for ssl.no-default conf ([#1415](https://github.com/roots/trellis/pull/1415))
+* Simplify Nginx no-default sites for HTTPS ([#1414](https://github.com/roots/trellis/pull/1414))
+* Improve composer authentications password default ([#1412](https://github.com/roots/trellis/pull/1412))
+* Run composer check-platform-reqs during deploy ([#1411](https://github.com/roots/trellis/pull/1411))
+* Fix #905, #831 - Update hb5p Nginx configs ([#1406](https://github.com/roots/trellis/pull/1406))
+
+### 1.16.0: July 18th, 2022
+* Fix Ansible 6 support - remove broken and unused `cli` import ([#1404](https://github.com/roots/trellis/pull/1404))
+* Fix #1400 - update shared path permission ([#1403](https://github.com/roots/trellis/pull/1403))
+* Update requirements.yml to new format ([#1402](https://github.com/roots/trellis/pull/1402))
+* Set journald max log file size ([#1399](https://github.com/roots/trellis/pull/1399))
+* Stop old php-fpm services before starting new one ([#1395](https://github.com/roots/trellis/pull/1395))
+* Fix ansible incompatibility in git connection error ([#1397](https://github.com/roots/trellis/pull/1397))
+* Update Ansible version requirement ([#1396](https://github.com/roots/trellis/pull/1396))
+
+### 1.15.0: June 8th, 2022
+* Add variables for web and uploads paths ([#1378](https://github.com/roots/trellis/pull/1378))
+* Fix WP is-installed check during deploys for multisite installs ([#1388](https://github.com/roots/trellis/pull/1388))
+* Set `mjs` as `application/javascript` in Nginx confs ([#1383](https://github.com/roots/trellis/pull/1383))
+* Change MariaDB PPA repo ([#1384](https://github.com/roots/trellis/pull/1384))
+* Allow newer Vagrant versions on Linux ([#1382](https://github.com/roots/trellis/pull/1382))
+* Remove redundant `ansible_connection=local` and comments ([#1380](https://github.com/roots/trellis/pull/1380))
+* Update `build-after` deploy hook example for Sage 10 ([#1377](https://github.com/roots/trellis/pull/1377))
+* Update `geerlingguy.ntp` role to `2.3.1` ([#1376](https://github.com/roots/trellis/pull/1376))
+* Add built-in fail2ban filters ([#1375](https://github.com/roots/trellis/pull/1375))
+* Support Ansible >= 2.10 (tested up to 5.4.0) ([#1373](https://github.com/roots/trellis/pull/1373))
+* Remove Python 2 support ([#1361](https://github.com/roots/trellis/pull/1361))
+
+### 1.14.0: February 16th, 2022
+* Fix #1026 - Preserve nested path for copied folders between deploys ([#1364](https://github.com/roots/trellis/pull/1364))
+* Fix #1354 - Ensure correct PHP version is set ([#1365](https://github.com/roots/trellis/pull/1365))
+* Create mysql my.cnf credentials file earlier ([#1360](https://github.com/roots/trellis/pull/1360))
+* Remove bin scripts (trellis-cli should be used instead) ([#1352](https://github.com/roots/trellis/pull/1352))
+* Update `wp_cli_version` to `2.6.0` ([#1358](https://github.com/roots/trellis/pull/1358))
+* Deploy hook build example: update Sage build command ([#1356](https://github.com/roots/trellis/pull/1356))
+
+### 1.13.0: January 21st, 2022
+* Fix #1354 - Prevent apt from installing recommended packages for php ([#1355](https://github.com/roots/trellis/pull/1355))
+* Update default ssh key paths (include ed25519 keys) ([#1348](https://github.com/roots/trellis/pull/1348))
+* Use trellis-cli for Vagrant galaxy install when available ([#1349](https://github.com/roots/trellis/pull/1349))
+* Fix #970 - Improve git clone failure error ([#1351](https://github.com/roots/trellis/pull/1351))
+
+### 1.12.0: January 3rd, 2022
+* Improve support for adding public SSH keys ([#1344](https://github.com/roots/trellis/pull/1344))
+* Update default Vagrant IP to 192.168.56.5 ([#1341](https://github.com/roots/trellis/pull/1341))
+* Remove old WP customizer frame options hack ([#1338](https://github.com/roots/trellis/pull/1338))
+* Fix #1319 - Improve how ssh_args are loaded ([#1337](https://github.com/roots/trellis/pull/1337))
+* Fix #1331 - Improve passlib instructions([#1336](https://github.com/roots/trellis/pull/1336))
+
+### 1.11.0: December 10th, 2021
+* Bump minimum ansible version to `2.10.0` and add `ansible-base` to requirements ([#1334](https://github.com/roots/trellis/pull/1334))
+* Fix Ansible `2.10.16` - set default for `ansible_ssh_extra_args` ([#1333](https://github.com/roots/trellis/pull/1333))
+* Set max supported Vagrant version to `< 2.2.19` ([#1332](https://github.com/roots/trellis/pull/1332))
+* Bump `vagrant_ansible_version` to `2.10.7` ([#1329](https://github.com/roots/trellis/pull/1329))
+* Remove Nginx `ssl_dhparam` directive and Diffie-Hellman params group ([#1326](https://github.com/roots/trellis/pull/1326))
+* Add PHP 8.1 support ([#1325](https://github.com/roots/trellis/pull/1325))
+
+### 1.10.0: November 28th, 2021
+* Default to PHP 8.0 ([#1322](https://github.com/roots/trellis/pull/1322))
+* Add GitHub SSH ed25519 key to known hosts ([#1324](https://github.com/roots/trellis/pull/1324))
+* Enable pipelining for local Ansible connections ([#1323](https://github.com/roots/trellis/pull/1323))
+
+### 1.9.1: November 11th, 2021
+* Update MariaDB mirror source ([#1320](https://github.com/roots/trellis/pull/1320))
+* Remove explicit arch deb options for MariaDB (improves ARM support) ([#1318](https://github.com/roots/trellis/pull/1318))
+
+### 1.9.0: October 27th, 2021
+* Bump max tested Ansible version to `2.10.7` ([#1317](https://github.com/roots/trellis/pull/1317))
+* Fix display color output in logs ([#1316](https://github.com/roots/trellis/pull/1316))
+* Define `composer_authentications` default ([#1315](https://github.com/roots/trellis/pull/1315))
+* Fix #1311 - Remove explicit permission for site directory ([#1314](https://github.com/roots/trellis/pull/1314))
+* Fix #1277 - Disable PHP CLI memory limit ([#1278](https://github.com/roots/trellis/pull/1278))
+* Fix #1285 - Improve handling of WP-CLI failed verification ([#1295](https://github.com/roots/trellis/pull/1295))
+* Fix #1284 - Update logrotate postrotate Nginx command ([#1293](https://github.com/roots/trellis/pull/1293))
+* Replace php-gd with php-imagick ([#1292](https://github.com/roots/trellis/pull/1292))
+* Improve handling of PHP versions and support PHP 8.0 (default is still 7.4) ([#1284](https://github.com/roots/trellis/pull/1284))
+
+### 1.8.0: February 12th, 2021
+* Set permissions on all file related tasks ([#1270](https://github.com/roots/trellis/pull/1270))
+* Use Python 3 for `ansible_local` Vagrant provisioner ([#1269](https://github.com/roots/trellis/pull/1269))
+* Bump `vagrant_ansible_version` to `2.9.10` ([#1268](https://github.com/roots/trellis/pull/1268))
+* Migrate to Xdebug 3 ([#1260](https://github.com/roots/trellis/pull/1260))
+
+### 1.7.1: January 20th, 2021
+* Improved repo connection failure message on deploys ([#1265](https://github.com/roots/trellis/pull/1265))
+* Fix #1263 - Remove deprecated PHP option `track_errors` ([#1264](https://github.com/roots/trellis/pull/1264))
+* Validate that `letsencrypt_contact_emails` is a list ([#1250](https://github.com/roots/trellis/pull/1250))
+* Add config for PHP CLI ([#1261](https://github.com/roots/trellis/pull/1261))
+* Fix security issue with empty password ([#1256](https://github.com/roots/trellis/pull/1256))
+
+### 1.7.0: November 9th, 2020
+* Officially support Ubuntu 20.04 (and default Vagrant to it) ([#1197](https://github.com/roots/trellis/pull/1197))
+
+### 1.6.0: November 5th, 2020
+* Remove prestissimo for Composer 2.0 support ([#1247](https://github.com/roots/trellis/pull/1247))
+* Allow WP cron intervals to be configurable ([#1222](https://github.com/roots/trellis/pull/1222))
+* Remove default Vagrant SMB credentials ([#1215](https://github.com/roots/trellis/pull/1215))
+* Fix usage of `ANSIBLE_CONFIG` env var ([#1217](https://github.com/roots/trellis/pull/1217))
+* Update MariaDB package to 10.5 ([#1212](https://github.com/roots/trellis/pull/1212))
+* Switch to official Nginx Ubuntu package ([#1208](https://github.com/roots/trellis/pull/1208))
+
+### 1.5.0: August 5th, 2020
+* Improve Nginx reloading for failed Let's Encrypt certificates ([#1207](https://github.com/roots/trellis/pull/1207))
+* Add support for Lets Encrypt contact emails ([#1206](https://github.com/roots/trellis/pull/1206))
+* Support branch variable for deploys ([#1204](https://github.com/roots/trellis/pull/1204))
+* Removes ID from Lets Encrypt bundled certificate and make filename stable ([#834](https://github.com/roots/trellis/pull/834))
+* Make Fail2ban settings extensible ([#1177](https://github.com/roots/trellis/pull/1177))
+* Improve ip_whitelist in development ([#1183](https://github.com/roots/trellis/pull/1183))
 * Support Ansible 2.9 ([#1169](https://github.com/roots/trellis/pull/1169))
 * [BREAKING] Remove `nginx_includes_deprecated` feature ([#1173](https://github.com/roots/trellis/pull/1173))
 * Bump Ansible version_tested_max to 2.8.10 ([#1167](https://github.com/roots/trellis/pull/1167))
 * Bump Ansible requirement to 2.8.0 ([#1147](https://github.com/roots/trellis/pull/1147))
+* Update CircleCI Config ([#1184](https://github.com/roots/trellis/pull/1184))
 
 ### 1.4.0: April 2nd, 2020
 * Update PHP to 7.4 ([#1164](https://github.com/roots/trellis/pull/1164))

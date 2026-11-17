@@ -3,17 +3,19 @@
 # Define accompanying passwords/secrets in group_vars/development/vault.yml
 
 wordpress_sites:
-  leohurwitz.com:
+  leohurwitz.org:
     site_hosts:
       - canonical: leohurwitz.test
         redirects:
           - www.leohurwitz.test
     local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    admin_email: francois@13milliseconds.com
+    admin_email: admin@leohurwitz.test
     multisite:
       enabled: false
     ssl:
-      enabled: true
+      enabled: false
       provider: self-signed
     cache:
+      enabled: false
+    xmlrpc:
       enabled: false

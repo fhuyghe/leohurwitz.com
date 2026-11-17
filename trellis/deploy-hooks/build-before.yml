@@ -1,12 +1,9 @@
-# Placeholder `deploy_build_before` hook for building theme assets on the
-# host machine and then copying the files to the remote server
+# `deploy_build_before` hook: builds the theme assets on the host machine and
+# copies them to the remote server.
 #
-# ⚠️ This example assumes your theme is using Sage 9
-# An example for themes built with Sage 8 can be found at: https://git.io/vdgUt
-#
-# Uncomment the lines below and replace `sage` with your theme folder
-#
-# ---
+# The theme is built with Vite, which needs Node 20.19+ or 22.12+ on the host
+# (see .nvmrc in the theme folder).
+---
 - name: Install npm dependencies
   command: yarn
   delegate_to: localhost
@@ -19,14 +16,25 @@
     chdir: "{{ deploy_helper.new_release_path }}/web/app/themes/leohurwitz2019"
 
 - name: Compile assets for production
-  command: yarn build:production
+  command: yarn build
   delegate_to: localhost
   args:
     chdir: "{{ project_local_path }}/web/app/themes/leohurwitz2019"
 
+- name: Check for the Vite manifest
+  stat:
+    path: "{{ project_local_path }}/web/app/themes/leohurwitz2019/public/build/manifest.json"
+  delegate_to: localhost
+  register: manifest_data
+
+- name: Vite manifest missing
+  ansible.builtin.fail:
+    msg: "The theme is missing the public/build/manifest.json file"
+  when: not manifest_data.stat.exists
+
 - name: Copy production assets
   synchronize:
-    src: "{{ project_local_path }}/web/app/themes/leohurwitz2019/dist"
+    src: "{{ project_local_path }}/web/app/themes/leohurwitz2019/public"
     dest: "{{ deploy_helper.new_release_path }}/web/app/themes/leohurwitz2019"
     group: no
     owner: no
