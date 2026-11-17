@@ -9,7 +9,7 @@
 <div class="col-md-6 col-lg-4 movie @if($hasFilm) hasFilm @endif" data-name="{{ the_title() }}" data-year="{{ the_field('year') }}">
     <a href="{{ the_permalink() }}">
         @php $thumb = get_the_post_thumbnail_url() @endphp
-        <div class="thumbnail" style="background-image: url(@if($thumb){{ $thumb }} @else @asset('images/film-default.png') @endif)"></div>
+        <div class="thumbnail" style="background-image: url(@if($thumb){{ $thumb }} @else {{ Vite::asset('resources/images/film-default.png') }} @endif)"></div>
         <h4>{{ the_title() }}, {{ $dateDisplay }}</h3>
         <h5>{{ the_field('subtitle') }}</h4>
         @if($hasFilm)<div class="tag">{!! theme_icon('play') !!} Watch Now</div>@endif

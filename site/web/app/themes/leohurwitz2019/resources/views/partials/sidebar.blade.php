@@ -4,6 +4,6 @@
     </div>
     <div class="bottom">
         <h4>Contact</h4>
-        <a href="mailto:info@leohurwitz.com">info@leohurwitz.com</a>
+        <a href="mailto:info@leohurwitz.org">info@leohurwitz.org</a>
     </div>
 </div>

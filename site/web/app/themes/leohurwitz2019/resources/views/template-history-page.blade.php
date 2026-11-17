@@ -9,7 +9,7 @@
     <section id="submenuHeader">
       <div class="container"> 
         {!! wp_nav_menu(['theme_location' => 'history-menu', 'menu_class' => 'history-menu']) !!}
-          <h1>{!! App::title() !!}</h1>
+          <h1>{!! $title !!}</h1>
       </div>
     </section>
     <section id="mainContent">
@@ -18,7 +18,7 @@
       </div>
     </section>
     <div class="back-to-top">
-      <img src="@asset("images/arrow.svg")" />
+      <img src="{{ Vite::asset('resources/images/arrow.svg') }}" />
     </div>
   @endwhile
 @endsection

@@ -1,0 +1,89 @@
+/**
+ * WordPress Generated Classes
+ * @see http://codex.wordpress.org/CSS#WordPress_Generated_Classes
+ */
+
+/** Media alignment */
+.alignnone {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  height: auto;
+}
+
+.aligncenter {
+  display: block;
+  margin: ($spacer / 2) auto;
+  height: auto;
+}
+
+.alignleft,
+.alignright {
+  margin-bottom: ($spacer / 2);
+  height: auto;
+}
+
+@include media-breakpoint-up(sm) {
+  .alignleft {
+    float: left;
+    margin-right: ($spacer / 2);
+  }
+
+  .alignright {
+    float: right;
+    margin-left: ($spacer / 2);
+  }
+}
+
+/** Captions */
+.wp-caption {
+  @extend .figure;
+}
+
+.wp-caption img {
+  @extend .figure-img;
+  @extend .img-fluid;
+}
+
+.wp-caption-text {
+  @extend .figure-caption;
+}
+
+/** Text meant only for screen readers */
+.screen-reader-text {
+  @extend .sr-only;
+  @extend .sr-only-focusable;
+}
+
+/**
+ * Image block
+ *
+ * WordPress has restyled the image block since this site was designed
+ * (WordPress 5.4). These rules keep the original spacing.
+ */
+.wp-block-image {
+  margin-bottom: 1em;
+
+  .alignleft {
+    margin: 0 1em ($spacer / 2) 0;
+  }
+
+  .alignright {
+    margin: 0 0 ($spacer / 2) 1em;
+  }
+
+  > a,
+  > figure > a {
+    display: inline;
+  }
+}
+
+/**
+ * Columns block
+ *
+ * As above: the spacing WordPress 5.4 gave the columns block.
+ */
+.wp-block-columns {
+  margin-bottom: 28px;
+  gap: 0 32px;
+}

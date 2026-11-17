@@ -8,7 +8,7 @@
     <section>
       <div class="container">
       <div class="row">
-        @while($all_collaborators->have_posts()) @php($all_collaborators->the_post())
+        @while($all_collaborators->have_posts()) @php $all_collaborators->the_post() @endphp
         <div class="person col-6 col-md-4 col-lg-3">
           <a href="{{ the_permalink() }}">
             <div class="thumbnail" style="background-image: url('{{ the_post_thumbnail_url() }}');"></div>
@@ -20,6 +20,6 @@
     </div>
     </section>
     @endif
-    @php(wp_reset_postdata())
+    @php wp_reset_postdata() @endphp
   @endwhile
 @endsection

@@ -4,7 +4,7 @@
   @while(have_posts()) @php the_post() @endphp
     <div class="container">
     <div class="page-header">
-            <h1>{!! App::title() !!}</h1>
+            <h1>{!! $title !!}</h1>
     </div>      
 
     @if($posts->have_posts())
@@ -15,7 +15,7 @@
       @endwhile
       </div>
     </section>
-    @php(wp_reset_postdata())
+    @php wp_reset_postdata() @endphp
     @endif
     </div>
   @endwhile

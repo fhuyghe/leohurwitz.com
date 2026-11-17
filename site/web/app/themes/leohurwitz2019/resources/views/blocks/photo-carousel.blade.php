@@ -18,10 +18,10 @@
     @endforeach
   </div>
               <div class="arrow prev">
-                <img src="@asset('images/arrow.svg')" />
+                <img src="{{ Vite::asset('resources/images/arrow.svg') }}" />
               </div>
               <div class="arrow next">
-                <img src="@asset('images/arrow.svg')" />
+                <img src="{{ Vite::asset('resources/images/arrow.svg') }}" />
               </div>
 </div>
 

@@ -31,7 +31,7 @@
           @endwhile
         </div>
       </section>
-      @php(wp_reset_postdata())
+      @php wp_reset_postdata() @endphp
       
       @endif
     </div>

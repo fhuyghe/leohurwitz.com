@@ -8,7 +8,7 @@
             <div class="page-header">
               <h1>
                 <svg viewBox="0 0 136 18">
-                  <text x="0" y="16">{!! App::title() !!}</text>
+                  <text x="0" y="16">{!! $title !!}</text>
                 </svg>
               </h1>
             </div>            
@@ -32,7 +32,7 @@
             <div class="col-md-12">
             <a href="{{ $menu_item['link'] }}">
               <h2>{{ $menu_item['title'] }}</h2>
-              <img src="@asset('images/arrow.svg')" class="arrow" />
+              <img src="{{ Vite::asset('resources/images/arrow.svg') }}" class="arrow" />
             </a>
             </div>
           <div class="col-md-6">

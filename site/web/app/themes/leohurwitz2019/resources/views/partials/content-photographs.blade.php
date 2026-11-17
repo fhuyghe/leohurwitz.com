@@ -15,7 +15,7 @@
       </div>
     </div>
     <div class="back-to-top">
-      <img src="@asset("images/arrow.svg")" />
+      <img src="{{ Vite::asset('resources/images/arrow.svg') }}" />
     </div>
       </section>
       @endif

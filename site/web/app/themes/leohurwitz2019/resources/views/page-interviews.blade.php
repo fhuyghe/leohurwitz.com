@@ -8,7 +8,7 @@
     <section>
       <div class="container">
       <div class="row movies-wrap">
-    @while($all_interviews->have_posts()) @php($all_interviews->the_post())
+    @while($all_interviews->have_posts()) @php $all_interviews->the_post() @endphp
       <div class="col-md-4 movie">
           <a href="{{ the_permalink() }}">
             <div class="thumbnail" style="background-image: url({{ get_the_post_thumbnail_url() }})"></div>
@@ -19,7 +19,7 @@
     @endwhile
       </div>
       </div>
-    @php(wp_reset_postdata())
+    @php wp_reset_postdata() @endphp
     @endif
   @endwhile
 @endsection
