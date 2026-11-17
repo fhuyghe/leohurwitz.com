@@ -22,3 +22,15 @@ update_option("active_plugins", array_values(array_filter($active, fn ($p) => fi
 wp --skip-themes core update-db
 wp --skip-themes rewrite flush
 wp --skip-themes cache flush
+
+# Offload Media 3 only rewrites image URLs to Spaces once its own upgrade routines
+# (9 to 14) have run, and it only starts them from wp-admin. Run them here instead.
+i=0
+while [ "$(wp eval 'global $as3cf; echo $as3cf->get_setting("post_meta_version");')" != "14" ] && [ $i -lt 40 ]; do
+    wp --context=admin eval '1;'
+    hooks=$(wp cron event list --field=hook | grep as3cf_cron_update | sort -u)
+    [ -n "$hooks" ] && wp cron event run $hooks
+    i=$((i + 1))
+done
+# Forget URL lookups that failed before those routines had run.
+wp db query "DELETE FROM $(wp db prefix)postmeta WHERE meta_key LIKE 'as3cf\_url\_cache\_%'"
