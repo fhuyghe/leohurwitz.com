@@ -9,13 +9,10 @@
  */
 
 use Roots\WPConfig\Config;
+use function Env\env;
 
-/** OFFLOAD MEDIA CONFIG **/
-define( 'AS3CF_SETTINGS', serialize( array(
-    'provider' => 'do',
-    'access-key-id' => '7WB74YBGPI7AUM5XEMQQ',
-    'secret-access-key' => 'ZIg2QsFfh+6ImWd3ytng4ZRwnwjoyJ9EdjKLQUQwvM8',
-) ) );
+// USE_ENV_ARRAY + CONVERT_* + STRIP_QUOTES
+Env\Env::$options = 31;
 
 /** @var string Directory containing all of the site's files */
 $root_dir = dirname(__DIR__);
@@ -24,16 +21,18 @@ $root_dir = dirname(__DIR__);
 $webroot_dir = $root_dir . '/web';
 
 /**
- * Expose global env() function from oscarotero/env
- */
-Env::init();
-
-/**
  * Use Dotenv to set required environment variables and load .env file in root
+ * .env.local will override .env if it exists
  */
-$dotenv = Dotenv\Dotenv::create($root_dir);
 if (file_exists($root_dir . '/.env')) {
+    $env_files = file_exists($root_dir . '/.env.local')
+        ? ['.env', '.env.local']
+        : ['.env'];
+
+    $dotenv = Dotenv\Dotenv::createImmutable($root_dir, $env_files, false);
+
     $dotenv->load();
+
     $dotenv->required(['WP_HOME', 'WP_SITEURL']);
     if (!env('DATABASE_URL')) {
         $dotenv->required(['DB_NAME', 'DB_USER', 'DB_PASSWORD']);
@@ -92,6 +91,15 @@ Config::define('LOGGED_IN_SALT', env('LOGGED_IN_SALT'));
 Config::define('NONCE_SALT', env('NONCE_SALT'));
 
 /**
+ * Digital Ocean Space settings
+ */
+Config::define( 'AS3CF_SETTINGS', serialize( array(
+    'provider' => 'do',
+    'access-key-id' => env('AS3CF_ID'),
+    'secret-access-key' => env('AS3CF_KEY'),
+) ) );
+
+/**
  * Custom Settings
  */
 Config::define('AUTOMATIC_UPDATER_DISABLED', true);
@@ -106,7 +114,7 @@ Config::define('DISALLOW_FILE_MODS', true);
  */
 Config::define('WP_DEBUG_DISPLAY', false);
 Config::define('SCRIPT_DEBUG', false);
-ini_set('display_errors', 0);
+ini_set('display_errors', '0');
 
 /**
  * Allow WordPress to detect HTTPS when used behind a reverse proxy or a load balancer
@@ -123,6 +131,7 @@ if (file_exists($env_config)) {
 }
 
 Config::apply();
+
 
 /**
  * Bootstrap WordPress

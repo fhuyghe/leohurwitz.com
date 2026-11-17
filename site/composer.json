@@ -23,62 +23,51 @@
     "issues": "https://github.com/roots/bedrock/issues",
     "forum": "https://discourse.roots.io/category/bedrock"
   },
-  "config": {
-    "preferred-install": "dist"
-  },
   "repositories": [
     {
       "type": "composer",
       "url": "https://wpackagist.org"
     },
     {
-      "type": "vcs",
-      "url": "git@github.com:13milliseconds/wp-fastest-cache-premium.git"
-    },
-    {
-      "type": "package",
-      "package": {
-        "name": "advanced-custom-fields/advanced-custom-fields-pro",
-        "version": "5.8.9",
-        "type": "wordpress-plugin",
-        "dist": {
-          "type": "zip",
-          "url": "https://connect.advancedcustomfields.com/index.php?a=download&p=pro&k={%ACF_PRO_KEY}&t={%version}"
-        },
-        "require": {
-          "composer/installers": "^1.4",
-          "ffraenz/private-composer-installer": "^2.0"
-        }
-      }
+      "type": "composer",
+      "url": "https://composer.deliciousbrains.com/D4A7ACB70D1F4E28E3BF5453A3FC8564"
     },
     {
       "type": "composer",
-      "url": "https://composer.deliciousbrains.com/D4A7ACB70D1F4E28E3BF5453A3FC8564"
+      "url": "https://connect.advancedcustomfields.com"
     }
   ],
   "require": {
-    "php": ">=7.1",
-    "composer/installers": "^1.4",
-    "vlucas/phpdotenv": "^3.4.0",
-    "oscarotero/env": "^1.2.0",
-    "roots/wordpress": "5.4.1",
-    "roots/wp-config": "1.0.0",
-    "roots/wp-password-bcrypt": "1.0.0",
-    "13milliseconds/wp-fastest-cache-premium": "^1.4",
-    "deliciousbrains-plugin/wp-migrate-db-pro": "^1.8.4",
-    "deliciousbrains-plugin/wp-migrate-db-pro-media-files": "*",
-    "advanced-custom-fields/advanced-custom-fields-pro": "^5.8.6",
-    "wpackagist-plugin/ewww-image-optimizer":"5.2.5",
-    "wpackagist-plugin/wp-fastest-cache":"^0.9.0.4",
-    "wpackagist-plugin/custom-post-type-ui":"1.7.4",
-    "wpackagist-plugin/amazon-s3-and-cloudfront": "^2.2",
-    "wpackagist-plugin/intuitive-custom-post-order":"3.1.2",
-    "wpackagist-plugin/wordpress-seo":"14.0.4"
+    "php": ">=8.3",
+    "composer/installers": "^2.3",
+    "deliciousbrains-plugin/wp-migrate-db-pro": "2.7.9",
+    "oscarotero/env": "^2.1",
+    "roots/wordpress": "7.1.4",
+    "roots/wp-config": "^1.0",
+    "vlucas/phpdotenv": "^5.5",
+    "wpackagist-plugin/amazon-s3-and-cloudfront": "^3.4",
+    "wpackagist-plugin/custom-post-type-ui": "^1.19",
+    "wpackagist-plugin/ewww-image-optimizer": "^8.9",
+    "wpackagist-plugin/intuitive-custom-post-order": "^3.2",
+    "wpackagist-plugin/wordpress-seo": "^28.8",
+    "wpackagist-plugin/wp-fastest-cache": "^1.5",
+    "wpengine/advanced-custom-fields-pro": "^6.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "^3.4.2",
-    "roave/security-advisories": "dev-master"
+    "roave/security-advisories": "dev-latest"
   },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "composer/installers": true,
+      "roots/wordpress-core-installer": true
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "extra": {
     "installer-paths": {
       "web/app/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
