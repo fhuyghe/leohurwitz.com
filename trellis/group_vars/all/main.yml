@@ -20,3 +20,11 @@ raw_vars:
   - vault_users.*.salt
   - vault_wordpress_env_defaults
   - vault_wordpress_sites
+
+# Contact for Let's Encrypt certificate notices
+letsencrypt_contact_emails:
+  - admin@leohurwitz.org
+
+# Newer acme-tiny: the commit Trellis 1.23 pins crashes now that Let's Encrypt
+# no longer returns account contact details.
+acme_tiny_commit: dc2c102314a56580facafce2249b292cebcfc42b
